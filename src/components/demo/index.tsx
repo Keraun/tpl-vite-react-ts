@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import useDemoHook from './useDemoHook';
 import styles from './index.module.less';
 
@@ -11,10 +12,17 @@ export default function Demo(props: IDemoProps) {
   console.log('test', test);
   console.log('test', test);
 
-        console.log('test', test);
-        console.log('test', test);
+             console.log('test', test);
+              console.log('test', test);
 
   const { testDemoData } = useDemoHook({ initDemoData: 2 });
+
+
+  useEffect(() => {
+
+
+
+  });
 
   return (
     <div className={styles.wrap}>
