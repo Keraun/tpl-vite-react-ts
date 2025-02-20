@@ -2,6 +2,10 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
+import DEV_PROXY from './dev.proxy.ts';
+
+// 默认开发服务器端口
+const DEFAULT_DEV_PORT = 3000;
 
 // https://vite.dev/config/
 export default defineConfig({
@@ -39,6 +43,7 @@ export default defineConfig({
   },
   optimizeDeps: {},
   server: {
-    port: 3000, // 开发服务器端口
+    port: DEFAULT_DEV_PORT,
+    proxy: DEV_PROXY,
   },
 });
