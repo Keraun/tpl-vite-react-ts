@@ -1,5 +1,6 @@
 declare module '*.tsx'; // 允许导入 TypeScript 文件
 declare module '*.ts';
+declare module '@/*'; // 声明路径别名类型
 
 // react-shim.d.ts
 declare namespace JSX {
