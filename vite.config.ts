@@ -1,10 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), visualizer()],
   resolve: {
     alias: {
       '@': path.join(__dirname, 'src'),
@@ -14,6 +15,16 @@ export default defineConfig({
     mainFields: [], // 解析包入口点尝试的字段列表
     extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json'], // 导入时想要忽略的扩展名列表
     preserveSymlinks: false, // 启用此选项会使 Vite 通过原始文件路径确定文件身份
+  },
+  build: {
+    cssCodeSplit: true,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'promise-polyfill', 'whatwg-fetch'],
+        },
+      },
+    },
   },
   css: {
     modules: {
