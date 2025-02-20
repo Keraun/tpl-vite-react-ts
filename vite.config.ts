@@ -1,13 +1,13 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react-swc'
-import path from "path";
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react-swc';
+import path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
-      "@": path.join(__dirname, 'src'),
+      '@': path.join(__dirname, 'src'),
     },
     dedupe: [], // 强制 Vite 始终将列出的依赖项解析为同一副本
     conditions: [], // 解决程序包中 情景导出 时的其他允许条件
@@ -18,13 +18,16 @@ export default defineConfig({
   css: {
     modules: {
       localsConvention: 'camelCase',
-      generateScopedName: '[name]__[local]___[hash:base64:5]' // 自定义生成规则 
+      generateScopedName: '[name]__[local]___[hash:base64:5]', // 自定义生成规则
     },
     preprocessorOptions: {
       less: {
         javascriptEnabled: true,
-      }
-    }
-  }
-})
-
+      },
+    },
+  },
+  optimizeDeps: {},
+  server: {
+    port: 3000, // 开发服务器端口
+  },
+});
