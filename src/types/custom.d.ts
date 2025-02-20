@@ -1,3 +1,13 @@
+declare module '*.tsx'; // 允许导入 TypeScript 文件
+declare module '*.ts';
+
+// react-shim.d.ts
+declare namespace JSX {
+  interface IntrinsicElements {
+    [elemName: string]: any;
+  }
+}
+
 // 声明 SVG 模块类型
 declare module '*.svg' {
   import React from 'react';

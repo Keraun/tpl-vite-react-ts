@@ -1,5 +1,4 @@
 import { GLOBAL_CONTEXT } from './context';
-
 import Layout from './layout';
 import Home from '@/pages/home';
 import './global.less';
