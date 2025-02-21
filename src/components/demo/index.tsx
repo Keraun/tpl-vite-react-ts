@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import classNames from 'classnames';
 import useDemoHook from './useDemoHook';
 import styles from './index.module.less';
 
@@ -16,7 +17,7 @@ export default function Demo(props: IDemoProps) {
   useEffect(() => {});
 
   return (
-    <div className={styles.wrap}>
+    <div className={classNames(styles.wrap, styles.test)}>
       <div>Demo</div>
       <div>useDemoHook testDemoData: {testDemoData.current}</div>
     </div>
