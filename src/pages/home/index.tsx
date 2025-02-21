@@ -27,7 +27,7 @@ export default function Home() {
 
   return (
     <div className={styles.wrap}>
-      <div>Home</div>
+      <div className='text-3xl font-bold text-blue-500'>Home</div>
       <div>globalContext: {JSON.stringify(globalContext)}</div>
       <div>useHomeHook testData: {testData.current}</div>
       <div>
