@@ -20,8 +20,8 @@ export default function Demo(props: IDemoProps) {
     console.log('test', test);
 
 
-          console.log('test', test);
-          console.log('test', test);
+                        console.log('test', test);
+                        console.log('test', test);
 
 
           console.log('test', test);
@@ -32,8 +32,7 @@ export default function Demo(props: IDemoProps) {
 
 
   useEffect(() => {
-
-
+    error
   });
 
   return (
