@@ -10,19 +10,6 @@ export default function Demo(props: IDemoProps) {
   const { test } = props;
 
   console.log('test', test);
-  console.log('test', test);
-
-  console.log('test', test);
-  console.log('test', test);
-
-  console.log('test', test);
-  console.log('test', test);
-
-  console.log('test', test);
-  console.log('test', test);
-
-  console.log('test', test);
-  console.log('test', test);
 
   const { testDemoData } = useDemoHook({ initDemoData: 2 });
 

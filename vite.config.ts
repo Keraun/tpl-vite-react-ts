@@ -2,14 +2,27 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react-swc';
 import path from 'path';
 import { visualizer } from 'rollup-plugin-visualizer';
-import DEV_PROXY from './dev.proxy.ts';
+import { DEFAULT_DEV_PORT, USE_MOCK_API, DEV_PORXY_CONFIG } from './config/dev.config.ts';
+import { viteMockServe } from 'vite-plugin-mock';
 
-// 默认开发服务器端口
-const DEFAULT_DEV_PORT = 3000;
+// 开发环境
+const IS_DEV_ENV = process.env.NODE_ENV === 'development';
+
+// 开启mock服务
+const ENABLE_MOCK_API = IS_DEV_ENV && USE_MOCK_API;
+console.log('ENABLE_MOCK', ENABLE_MOCK_API);
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react(), visualizer()],
+  plugins: [
+    react(),
+    visualizer(),
+    viteMockServe({
+      mockPath: './__mock__', // Mock 文件存放目录
+      logger: true, // 控制台显示请求日志
+      enable: ENABLE_MOCK_API,
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.join(__dirname, 'src'),
@@ -25,7 +38,7 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks: {
-          vendor: ['react', 'react-dom', 'promise-polyfill', 'whatwg-fetch'],
+          vendor: ['react', 'react-dom', 'promise-polyfill'],
         },
       },
     },
@@ -43,7 +56,7 @@ export default defineConfig({
   },
   optimizeDeps: {},
   server: {
-    port: DEFAULT_DEV_PORT,
-    proxy: DEV_PROXY,
+    port: DEFAULT_DEV_PORT || 3000,
+    proxy: DEV_PORXY_CONFIG,
   },
 });
