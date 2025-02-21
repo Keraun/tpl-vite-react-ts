@@ -12,28 +12,21 @@ export default function Demo(props: IDemoProps) {
   console.log('test', test);
   console.log('test', test);
 
-    console.log('test', test);
-    console.log('test', test);
+  console.log('test', test);
+  console.log('test', test);
 
+  console.log('test', test);
+  console.log('test', test);
 
-    console.log('test', test);
-    console.log('test', test);
+  console.log('test', test);
+  console.log('test', test);
 
-
-                        console.log('test', test);
-                        console.log('test', test);
-
-
-          console.log('test', test);
-          console.log('test', test);
-
+  console.log('test', test);
+  console.log('test', test);
 
   const { testDemoData } = useDemoHook({ initDemoData: 2 });
 
-
-  useEffect(() => {
-    error
-  });
+  useEffect(() => {});
 
   return (
     <div className={styles.wrap}>
