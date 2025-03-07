@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Link } from 'react-router';
 
 import { GLOBAL_CONTEXT } from './context';
 import Layout from './layout';
