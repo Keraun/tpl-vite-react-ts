@@ -1,0 +1,15 @@
+stages:
+  - name: Build
+    steps:
+      - name: Install Dependencies
+        script: |
+          npm install
+          npm run build
+
+  - name: Deploy
+    steps:
+      - name: Install Wrangler
+        script: |
+          npm install -g wrangler
+          export CLOUDFLARE_API_TOKEN=Gkoetdbju5sGLXVXT0gbkYzUl2aYc9Iwp912CVY8
+          wrangler pages publish dist --project-name=tight-cherry-7a5b
