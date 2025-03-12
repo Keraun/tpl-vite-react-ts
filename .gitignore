@@ -35,3 +35,4 @@ dist-ssr
 .husky/
 .vscode/
 
+pnpm-lock.yaml
